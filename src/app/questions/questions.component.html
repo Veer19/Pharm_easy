@@ -1,0 +1,52 @@
+<app-header></app-header>
+
+<div class="answerForm" *ngIf="currentRoundNumber==1">
+  <h1>ROUND 1</h1>
+  <div class="submitAnswer">
+    <input class="input" placeholder="ANSWER 1" #ans1>
+    <div class="button submitButton" (click)="submitAns(ans1.value,1)" *ngIf = '!areAnswersCorrect["1"]' >SUBMIT</div>
+    <div class="button correctButton" *ngIf = 'areAnswersCorrect["1"]'>CORRECT</div>
+    <br>
+    <br>
+    <br>
+  </div>
+  <div class="submitAnswer">
+    <input class="input" placeholder="ANSWER 2" #ans2>
+    <div class="button submitButton" (click)="submitAns(ans2.value,2)" *ngIf = '!areAnswersCorrect["2"]' >SUBMIT</div>
+    <div class="button correctButton" *ngIf = 'areAnswersCorrect["2"]'>CORRECT</div>
+    <br>
+    <br>
+    <br>
+  </div>
+  <div class="wrongAnswerAlert" *ngIf="wrongAnswer">
+      Wrong Answer
+  </div>
+</div>
+
+<div class="answerForm" *ngIf="currentRoundNumber==2">
+  <h1>ROUND 2</h1>
+  <div class="submitAnswer">
+    <input class="input" placeholder="ANSWER 3" #ans3>
+    <div class="button submitButton" (click)="submitAns(ans3.value,3)" *ngIf = '!areAnswersCorrect["3"]' >SUBMIT</div>
+    <div class="button correctButton" *ngIf = 'areAnswersCorrect["3"]'>CORRECT</div>
+    <br>
+    <br>
+    <br>
+  </div>
+  <div class="submitAnswer">
+    <input class="input" placeholder="ANSWER 4" #ans4>
+    <div class="button submitButton" (click)="submitAns(ans4.value,4)" *ngIf = '!areAnswersCorrect["4"]' >SUBMIT</div>
+    <div class="button correctButton" *ngIf = 'areAnswersCorrect["4"]'>CORRECT</div>
+    <br>
+    <br>
+    <br>
+  </div>
+  <div class="submitAnswer">
+    <input class="input" placeholder="ANSWER 5" #ans5>
+    <div class="button submitButton" (click)="submitAns(ans5.value,5)" *ngIf = '!areAnswersCorrect["5"]' >SUBMIT</div>
+    <div class="button correctButton" *ngIf = 'areAnswersCorrect["5"]'>CORRECT</div>
+    <br>
+    <br>
+    <br>
+  </div>
+</div>

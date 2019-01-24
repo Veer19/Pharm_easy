@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="adminPassword" *ngIf="!loggedIn">
+    <input class="input" placeholder="Admin Password" #password>
+    <div class="button submitButton" (click)="adminLogin(password.value)">Login</div>
+  </div>
+
+  <div class="table" *ngIf="loggedIn">
+    <div class="button submitButton" (click)="changeRound(1)">Round 1</div>
+    <div class="button submitButton" (click)="changeRound(2)">Round 2</div>
+      
+    <table style="width:100%">
+      <tr>
+        <th>Name</th>
+        <th>Email</th> 
+        <th>Question 1</th>
+        <th>Question 2</th>
+        <th>Question 3</th>
+        <th>Question 4</th>
+        <th>Question 5</th>
+        
+      </tr>
+      <tr *ngFor="let user of users">
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td> 
+        <td>{{ user.answers.a1 }}</td>
+        <td>{{ user.answers.a2 }}</td>
+        <td>{{ user.answers.a3 }}</td>
+        <td>{{ user.answers.a4 }}</td>
+        <td>{{ user.answers.a5 }}</td>
+      </tr>
+    </table>
+  </div>
+</div>

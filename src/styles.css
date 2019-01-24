@@ -1,1 +1,65 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    margin: 0;
+    font-family: sans-serif;
+}
+h1,h2,h3,h4{
+    font-weight: normal;
+}
+.googleButtonContainer{
+    text-align: center;
+    background: url(./assets/bg.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+.loginWithGoogle{
+    padding: 30px 50px;
+    font-size: 200%;
+    margin-top: 450px;
+    background: #992315;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+    cursor: pointer;
+}
+.answerForm{
+    
+    padding: 100px 200px;
+}
+.input{
+    padding: 10px 30px;
+    border-radius: 10px 0px 0px 10px;
+    border: 1px solid black;
+    
+}
+.button{
+    padding: 10px 20px;
+    
+    border-radius: 0px 10px 10px 0px;
+    
+    color: white;
+    display: inline-block;
+    
+}
+.submitButton{
+    background: #992315;
+    cursor: pointer;
+}
+.correctButton{
+    background: green;
+}
+.wrongAnswerAlert{
+    border-radius: 5px;
+    background: #992315;
+    padding: 10px 100px;
+    color: white;
+    display: inline-block;
+}
+.logoutButton{
+    cursor: pointer;
+    opacity: 0.8;
+}
+.logoutButton:hover{
+    opacity: 1;
+}

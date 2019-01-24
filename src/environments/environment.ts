@@ -3,9 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  firebase: {
+    apiKey: "AIzaSyCJpMJw8CW9yxvTg3zG7J3XKpwzMsO00NM",
+    authDomain: "codeduel-2019.firebaseapp.com",
+    databaseURL: "https://codeduel-2019.firebaseio.com",
+    projectId: "codeduel-2019",
+    storageBucket: "codeduel-2019.appspot.com",
+    messagingSenderId: "642160698867"
+  },
+  production: true,
+  
 };
-
 /*
  * In development mode, for easier debugging, you can ignore zone related error
  * stack frames such as `zone.run`/`zoneDelegate.invokeTask` by importing the

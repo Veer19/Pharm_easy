@@ -1,0 +1,14 @@
+.header{
+    background: #992315;
+    padding: 20px 100px;
+    color: white;
+    
+    font-family: sans-serif;
+}
+.left{
+    display: inline-block;
+
+}
+.right{
+    float: right;
+}
