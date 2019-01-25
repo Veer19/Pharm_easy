@@ -17,8 +17,10 @@ export class AdminComponent implements OnInit {
   users1Q;
   users2Q;
   users3Q;
+  sortedUsers;
   ngOnInit() {
     this.db.list("users").valueChanges().subscribe(users=>{
+      
       this.users1Q = users.filter(user=>(user["currentQuestion"]==1));
       this.users1Q.sort(function(user1,user2){
         return (user1.answers.a1+user1.answers.a2+user1.answers.a3) - (user2.answers.a1+user2.answers.a2+user2.answers.a3);
@@ -31,7 +33,12 @@ export class AdminComponent implements OnInit {
       this.users3Q.sort(function(user1,user2){
         return (user1.answers.a1+user1.answers.a2+user1.answers.a3) - (user2.answers.a1+user2.answers.a2+user2.answers.a3);
       })
-          
+      this.sortedUsers = this.users3Q.concat(this.users2Q.concat(this.users1Q));
+      
+      
+      this.db.object("noOfPart").valueChanges().subscribe(no=>{
+        this.sortedUsers = this.sortedUsers.filter((user,idx) => idx < no)  
+      })
     })
     this.db.object("currentRound").valueChanges().subscribe(currentRound=>{
       this.currentRound = currentRound;
@@ -47,6 +54,10 @@ export class AdminComponent implements OnInit {
       this.completedParticipants3 = completedParticipants;
     })
     
+  }
+  setNoOfQualifiers(no){
+    no = parseInt(no,10);
+    this.db.object('noOfPart').set(no);
   }
   changeRound(roundNo){
     this.db.object('currentRound').set(roundNo);

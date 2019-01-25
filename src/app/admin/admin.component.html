@@ -62,6 +62,16 @@
           <td>{{ user.answers.a1 | date:'medium' }}</td>
         </tr>
       </table>
+      <br>
+      <br>
+      <br>
+      <input class="input" placeholder="No of Qualifiers" #no>
+      <div class="button submitButton" (click)="setNoOfQualifiers(no.value)">Set</div>
+      <ul>
+        <li *ngFor = "let user of sortedUsers">
+          {{user.name}}
+        </li>
+      </ul>
     </div>
     <div>
         <br>
