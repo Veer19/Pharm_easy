@@ -28,7 +28,7 @@ h1,h2,h3,h4{
     padding: 100px 200px;
 }
 .input{
-    padding: 10px 30px;
+    padding: 10px 20px;
     border-radius: 10px 0px 0px 10px;
     border: 1px solid black;
     
@@ -48,6 +48,11 @@ h1,h2,h3,h4{
 }
 .correctButton{
     background: green;
+}
+.downloadButton{
+    background: #4286f4;
+    cursor: pointer;
+    border-radius: 10px;
 }
 .wrongAnswerAlert{
     border-radius: 5px;

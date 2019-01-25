@@ -19,7 +19,11 @@ export class LoginComponent implements OnInit {
       this.db.object('users/'+ user.user.uid).update({
         email:user.user.email,
         name:user.user.displayName,
-        answers:{}
+        answers:{
+          a1:false,
+          a2:false,
+          a3:false
+        }
       }).then(()=>{
         window.location.href="Questions";
       })

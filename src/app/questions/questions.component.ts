@@ -10,13 +10,19 @@ export class QuestionsComponent implements OnInit {
 
   constructor(private db:AngularFireDatabase, private afAuth:AngularFireAuth) { }
   currentRoundNumber;
+  userAnswers;
   ngOnInit() {
     this.db.object("currentRound").valueChanges().subscribe(round=>{
       this.currentRoundNumber = round
     })
+    this.afAuth.user.subscribe(userData=>{
+      this.db.object("users/"+userData.uid+"/answers/").valueChanges().subscribe(userAnswers =>{
+        this.userAnswers = userAnswers
+      })
+    })
     
   }
-  wrongAnswer;
+  /*
   areAnswersCorrect = {
     "1":false,
     "2":false,
@@ -24,12 +30,13 @@ export class QuestionsComponent implements OnInit {
     "4":false,
     "5":false
   };
+  */
   submitAns(ans,questionNo){
     this.db.object('answers/').valueChanges().subscribe(answers=>{
       if(ans==answers[questionNo]){        
         this.afAuth.user.subscribe(userData=>{
-          this.db.object("users/"+userData.uid+"/answers/a"+questionNo).set(ans);
-          this.areAnswersCorrect[questionNo] = true;
+          this.db.object("users/"+userData.uid+"/currentQuestion").set(questionNo);
+          this.db.object("users/"+userData.uid+"/answers/a"+questionNo).set(Date.now());
         })
       }
       else{

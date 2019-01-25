@@ -4,30 +4,112 @@
     <div class="button submitButton" (click)="adminLogin(password.value)">Login</div>
   </div>
 
-  <div class="table" *ngIf="loggedIn">
+  <div  *ngIf="loggedIn">
     <div class="button submitButton" (click)="changeRound(1)">Round 1</div>
     <div class="button submitButton" (click)="changeRound(2)">Round 2</div>
-      
-    <table style="width:100%">
-      <tr>
-        <th>Name</th>
-        <th>Email</th> 
-        <th>Question 1</th>
-        <th>Question 2</th>
-        <th>Question 3</th>
-        <th>Question 4</th>
-        <th>Question 5</th>
-        
-      </tr>
-      <tr *ngFor="let user of users">
-        <td>{{ user.name }}</td>
-        <td>{{ user.email }}</td> 
-        <td>{{ user.answers.a1 }}</td>
-        <td>{{ user.answers.a2 }}</td>
-        <td>{{ user.answers.a3 }}</td>
-        <td>{{ user.answers.a4 }}</td>
-        <td>{{ user.answers.a5 }}</td>
-      </tr>
-    </table>
+    <div class="button submitButton" (click)="changeRound(3)">Round 3</div>
+    <h3>Current Round: Round {{ currentRound }}</h3>
+    <div>
+      <h1 class="roundNo">ROUND 1</h1>
+      <br>
+      <h2>Users on Question 3</h2>
+      <table class="table"style="width:100%">
+        <tr>
+          <th>Name</th>
+          <th>Email</th> 
+          <th>Question 1</th>
+          <th>Question 2</th>
+          <th>Question 3</th>
+        </tr>
+        <tr *ngFor="let user of users3Q">
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td> 
+          <td>{{ user.answers.a1 | date:'medium' }}</td>
+          <td>{{ user.answers.a2 | date:'medium' }}</td>
+          <td>{{ user.answers.a3 | date:'medium' }}</td>
+        </tr>
+      </table>
+      <br>
+      <h2>Users on Question 2</h2>
+      <table class="table"style="width:100%">
+        <tr>
+          <th>Name</th>
+          <th>Email</th> 
+          <th>Question 1</th>
+          <th>Question 2</th>
+          <th>Question 3</th>
+        </tr>
+        <tr *ngFor="let user of users2Q">
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td> 
+          <td>{{ user.answers.a1 | date:'medium' }}</td>
+          <td>{{ user.answers.a2 | date:'medium' }}</td>
+        </tr>
+      </table>
+      <br>
+      <h2>Users on Question 1</h2>
+      <table class="table"style="width:100%">
+        <tr>
+          <th>Name</th>
+          <th>Email</th> 
+          <th>Question 1</th>
+          <th>Question 2</th>
+          <th>Question 3</th>
+        </tr>
+        <tr *ngFor="let user of users1Q">
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td> 
+          <td>{{ user.answers.a1 | date:'medium' }}</td>
+        </tr>
+      </table>
+    </div>
+    <div>
+        <br>
+        <br>
+      <h1 class="roundNo">ROUND 2</h1>
+      <div class="questionListContainer">
+        <div class="questionList">
+          <h1>Question 1</h1>
+          <input class="input" placeholder="Name" #name1>
+          <div class="button submitButton" (click)="enterName(name1.value,1)">Completed</div>
+          <br>
+          <br>
+          <br>
+          <div *ngFor = "let completedParticipant1 of completedParticipants1">
+            <div class="completedParticipant">
+              <h3>{{ completedParticipant1.name }} | {{ completedParticipant1.time | date:'shortTime'  }}</h3>
+            </div>
+          </div>
+          <br>
+        </div>
+        <div class="questionList">
+          <h1>Question 2</h1>
+          <input class="input" placeholder="Name" #name2>
+          <div class="button submitButton" (click)="enterName(name2.value,2)">Completed</div>
+          <br>
+          <br>
+          <br>
+          <div *ngFor = "let completedParticipant2 of completedParticipants2">
+            <div class="completedParticipant">
+              <h3>{{ completedParticipant2.name }} | {{ completedParticipant2.time | date:'shortTime'  }}</h3>
+            </div>
+          </div>
+          <br>
+        </div>
+        <div class="questionList">
+          <h1>Question 3</h1>
+          <input class="input" placeholder="Name" #name3>
+          <div class="button submitButton" (click)="enterName(name3.value,3)">Completed</div>
+          <br>
+          <br>
+          <br>
+          <div *ngFor = "let completedParticipant3 of completedParticipants3">
+            <div class="completedParticipant">
+              <h3>{{ completedParticipant3.name }} | {{ completedParticipant3.time | date:'shortTime'  }}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
