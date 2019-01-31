@@ -21,8 +21,10 @@ In the "ML" folder
 Run the following commands in the terminal
 
 pip install scikit-learn
+
 pip install pandas
 
 
 python prediction.py
+
 python out.py
