@@ -1,0 +1,51 @@
+<section>
+    <app-header></app-header>  
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <span>{{ name }}</span>
+        <span class="example-spacer"></span>    
+        <a [routerLink]="['/Patient/']"><button mat-raised-button color="accent">Reminders</button></a>
+        <a [routerLink]="['/Patient/History']"><button mat-raised-button color="accent">History</button></a>
+        <a link="symptoms.html"><button mat-raised-button color="accent">Symptoms</button></a>
+        
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <br>
+    <mat-card class="cardMargin">
+      <h1>Reminders</h1>
+      <mat-card-content>
+          <div class="margin">
+            <mat-card *ngFor="let appointment of appointments" class="card">
+              <div *ngFor="let prescription of appointment.prescription">
+                {{prescription}}
+              </div>
+            </mat-card>
+          </div>
+      </mat-card-content>
+    </mat-card>
+    <br>
+    <mat-card class="cardMargin">
+      <h1>Current Medications</h1>
+      <mat-card-content>
+          <div class="margin">
+            <mat-card *ngFor="let appointment of appointments; index as i" class="card">
+              <mat-card-header>
+                <mat-card-title><h2>{{appointment.reason}}</h2></mat-card-title>
+                <mat-card-subtitle>{{appointment.date}}</mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content class="margin">
+                <h2>Prescriptions</h2>
+                <div *ngFor="let prescription of appointment.prescription">
+                  {{prescription}}
+                </div>
+              </mat-card-content>
+              <button mat-raised-button color="accent" (click)="makePast(i)">Set Medication as Past</button>
+            </mat-card>
+          </div>
+      </mat-card-content>
+    </mat-card>
+  </section>
+  
+  
+  
+  

@@ -1,7 +1,8 @@
-<div class="header">
-  <div class="left"><h2>WILD WILD WEST</h2></div>
-  <div class="right">
-    <p>{{ name }}</p>
-    <p class="logoutButton" (click)="logout()">Logout</p>
-  </div>
-</div>
+
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>PharmEasy</span>
+    <span class="example-spacer"></span>    
+    <button mat-raised-button color="accent" class="logoutButton" (click)="logout()">Logout</button>
+  </mat-toolbar-row>
+</mat-toolbar>

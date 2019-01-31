@@ -1,6 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+//MATERIAL STUFF
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule, 
+        MatInputModule , 
+        MatToolbarModule,
+        MatIconModule,
+        MatSelectModule,
+        MatCardModule,
+        MatTabsModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+} from '@angular/material';
+
+//FIREBASE STUFF
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
@@ -12,12 +26,15 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
-import { QuestionsComponent } from './questions/questions.component';
-import { AdminComponent } from './admin/admin.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { PatientComponent } from './patient/patient.component';
+import { HistoryComponent } from './history/history.component';
+
 const appRoutes: Routes = [
   { path: '', component: LoginComponent  },
-  { path: 'Questions', component: QuestionsComponent },
-  { path: 'Admin', component: AdminComponent },
+  { path: 'Dashboard', component: DashboardComponent },
+  { path: 'Patient', component: PatientComponent },
+  { path: 'Patient/History', component: HistoryComponent }           
 ];
 
 @NgModule({
@@ -25,8 +42,9 @@ const appRoutes: Routes = [
     AppComponent,
     LoginComponent,
     HeaderComponent,
-    QuestionsComponent,
-    AdminComponent
+    DashboardComponent,
+    PatientComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +56,19 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
-    )
+    ),
+    //Material Imports
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSelectModule,
+    MatCardModule,
+    MatTabsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
+
   ],
   providers: [AppComponent],
   bootstrap: [AppComponent]

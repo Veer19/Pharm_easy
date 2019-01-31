@@ -1,0 +1,114 @@
+<section *ngIf="isDoctor">
+  <app-header></app-header>
+  <mat-form-field class="padding">
+    <input matInput #searchedUser placeholder="Search for Patients (Email)" value="">
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="searchUser(searchedUser.value)">Search</button>
+  <br>
+  <br>
+  <mat-card class="cardMargin" *ngIf="patient">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{ patient.name }}</mat-card-title>
+      <mat-card-subtitle>{{ patient.age }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-tab-group>
+        <mat-tab label="Medical History">
+          <div class="margin">
+            <mat-card *ngFor="let appointment of appointments" class="card">
+              <mat-card-header>
+                <mat-card-title>{{appointment.reason}}</mat-card-title>
+                <mat-card-subtitle>{{appointment.date}}</mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content class="margin">
+                <h2>Symptoms</h2>
+                <div *ngFor="let symptom of appointment.symptoms">
+                  {{symptom}}
+                </div>
+                <br>
+                <h2>Prescriptions</h2>
+                <div *ngFor="let prescription of appointment.prescription">
+                  {{prescription}}
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </mat-tab>
+        <mat-tab label="Add a Record">
+          <div class="margin">
+            <br>
+            <h2>Reason for Visit</h2>
+            <mat-form-field>
+              <input matInput #reason placeholder="Reason for Visit" value="">
+            </mat-form-field>
+            <br>
+            <h2>Symptoms</h2>
+            <mat-form-field>
+              <input matInput #symptom placeholder="Add Symptom" value="">
+            </mat-form-field>
+            <button mat-raised-button color="primary" (click)="addSymptom(symptom.value)">Add</button>
+            <div *ngFor="let symptom of symptoms">
+              {{symptom}}
+            </div>
+            
+            <br>
+            <h2>Prescription</h2>
+            <mat-form-field>
+              <input matInput #prescription placeholder="Add Prescription" value="">
+            </mat-form-field>
+            <button mat-raised-button color="primary" (click)="addPrescription(prescription.value)">Add</button>
+            <div *ngFor="let prescription of prescriptions">
+              {{prescription}}
+            </div>
+            <br>
+            <h2>Next Appointment</h2>
+            <mat-form-field>
+              <input matInput #date [matDatepicker]="picker" placeholder="Choose a date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <br>
+            <br>
+            <button mat-raised-button color="accent" (click)="submitData(reason.value,date.value)">Submit</button>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
+</section>
+
+<section *ngIf="isPharmacy">
+  <app-header></app-header>
+  <mat-form-field class="padding">
+    <input matInput #searchedUser placeholder="Search for Patients (Email)" value="">
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="searchUser(searchedUser.value)">Search</button>
+  <br>
+  <br>
+  <mat-card class="cardMargin" *ngIf="patient">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{ patient.name }}</mat-card-title>
+      <mat-card-subtitle>{{ patient.age }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="margin">
+          <mat-card *ngFor="let appointment of appointments" class="card">
+            <mat-card-header>
+              <mat-card-title><h2>{{appointment.reason}}</h2></mat-card-title>
+              <mat-card-subtitle>{{appointment.date}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content class="margin">
+              <h2>Prescriptions</h2>
+              <div *ngFor="let prescription of appointment.prescription">
+                {{prescription}}
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+    </mat-card-content>
+  </mat-card>
+</section>
+
+

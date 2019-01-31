@@ -4,12 +4,12 @@
 
 export const environment = {
   firebase: {
-    apiKey: "AIzaSyCoXiA6MbbDauFsR9GZeKU0QeNc1lcraU0",
-    authDomain: "wild-west-19.firebaseapp.com",
-    databaseURL: "https://wild-west-19.firebaseio.com",
-    projectId: "wild-west-19",
-    storageBucket: "",
-    messagingSenderId: "247540959705"
+    apiKey: "AIzaSyDOp6gO9z7fEIVCD8N6D7A-Gn18JSpOpGk",
+    authDomain: "justhack-2019.firebaseapp.com",
+    databaseURL: "https://justhack-2019.firebaseio.com",
+    projectId: "justhack-2019",
+    storageBucket: "justhack-2019.appspot.com",
+    messagingSenderId: "993079514906"
   },
   production: true,
   

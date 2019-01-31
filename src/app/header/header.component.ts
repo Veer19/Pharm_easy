@@ -7,8 +7,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
   styleUrls: ['./header.component.css']
 })
 
-export class HeaderComponent implements OnInit {
-  @Input() roundNo: String;
+export class HeaderComponent implements OnInit {  
   constructor(private afAuth:AngularFireAuth) { }
   name:String;
   ngOnInit() {
@@ -21,5 +20,4 @@ export class HeaderComponent implements OnInit {
       window.location.href="";
     });
   }
-
 }

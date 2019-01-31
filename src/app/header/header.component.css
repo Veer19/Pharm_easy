@@ -1,14 +1,7 @@
-.header{
-    background: #992315;
-    padding: 20px 100px;
-    color: white;
-    
-    font-family: sans-serif;
+.example-icon {
+  padding: 0 14px;
 }
-.left{
-    display: inline-block;
 
-}
-.right{
-    float: right;
+.example-spacer {
+  flex: 1 1 auto;
 }

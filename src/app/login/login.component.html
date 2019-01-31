@@ -1,2 +1,13 @@
-<div class="googleButtonContainer"><div class="loginWithGoogle" (click)="login()">LOGIN WITH GOOGLE</div></div>
+<app-header></app-header>
+<div class="login">
+    <mat-form-field>
+    <mat-select [(value)]="userType">
+        <mat-option>None</mat-option>
+        <mat-option value="doctor">Doctor</mat-option>
+        <mat-option value="pharmacy">Pharmacy</mat-option>
+        <mat-option value="patient">Patient</mat-option>
+    </mat-select>
+    </mat-form-field>
+    <button mat-raised-button color="primary" class="loginWithGoogle" (click)="login()">Login With Google</button>
+</div>
 {{error}}

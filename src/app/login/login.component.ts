@@ -14,18 +14,22 @@ export class LoginComponent implements OnInit {
     
   }
   error:String;
+  userType;
   login(){
     this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider()).then(user =>{
-      this.db.object('users/'+ user.user.uid).update({
+      this.db.object('users/'+user.user.uid).update({
         email:user.user.email,
         name:user.user.displayName,
-        answers:{
-          a1:false,
-          a2:false,
-          a3:false
-        }
+        userType:this.userType,
+        userId : user.user.uid
       }).then(()=>{
-        window.location.href="Questions";
+        if(this.userType=="patient"){
+          window.location.href="Patient";
+        }
+        else{
+          window.location.href="Dashboard";
+        }
+        
       })
       
     })
@@ -34,6 +38,12 @@ export class LoginComponent implements OnInit {
     })
   }
   ngOnInit() {
+    this.db.object("stuff").update({
+      'name':"veer"
+    })
+    this.db.object("stuff").valueChanges().subscribe(data=>{
+      console.log(data);
+    })
   }
 
 }
